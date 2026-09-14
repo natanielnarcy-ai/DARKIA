@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+*.log
+data/
+ai_engine_backup.py
+main_backup.py
+main_backup2.py

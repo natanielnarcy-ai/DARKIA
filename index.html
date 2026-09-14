@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <meta name="theme-color" content="#050816">
+
+    <meta
+        name="description"
+        content="DARKIA — Inteligência Artificial desenvolvida por BG e Ibram."
+    >
+
+    <title>DARKIA — AI CORE</title>
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         FUNDO / EFEITOS
+    =========================================== -->
+
+    <div id="background-effects">
+
+        <div class="grid-background"></div>
+
+        <div class="particles" id="particles"></div>
+
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+
+    </div>
+
+
+    <!-- ==========================================
+         APLICAÇÃO PRINCIPAL
+    =========================================== -->
+
+    <main class="app-container">
+
+
+        <!-- ======================================
+             CABEÇALHO
+        ======================================= -->
+
+        <header class="top-bar">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    ◈
+                </div>
+
+                <div class="brand-text">
+
+                    <h1>DARKIA</h1>
+
+                    <span>
+                        ARTIFICIAL INTELLIGENCE
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="system-status">
+
+                <span class="status-light"></span>
+
+                <span id="systemStatus">
+                    ONLINE
+                </span>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ======================================
+             ÁREA PRINCIPAL
+        ======================================= -->
+
+        <section class="dashboard">
+
+
+            <!-- ==================================
+                 NÚCLEO DA DARKIA
+            =================================== -->
+
+            <section class="ai-core-section">
+
+                <div class="ai-core">
+
+                    <div class="core-ring ring-1"></div>
+                    <div class="core-ring ring-2"></div>
+                    <div class="core-ring ring-3"></div>
+
+                    <div class="core-center">
+
+                        <div class="core-symbol">
+                            ◈
+                        </div>
+
+                        <strong>
+                            DARKIA
+                        </strong>
+
+                        <span>
+                            AI CORE
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="core-status">
+
+                    <span class="pulse"></span>
+
+                    <span>
+                        SISTEMA OPERACIONAL
+                    </span>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==================================
+                 PAINEL LATERAL
+            =================================== -->
+
+            <aside class="control-panel">
+
+                <div class="panel-title">
+
+                    <span>◈</span>
+
+                    <h2>
+                        AI CORE
+                    </h2>
+
+                </div>
+
+
+                <!-- Memória -->
+
+                <div class="system-card">
+
+                    <div class="card-icon">
+                        🧠
+                    </div>
+
+                    <div class="card-info">
+
+                        <span>
+                            MEMÓRIA
+                        </span>
+
+                        <strong id="memoryStatus">
+                            ATIVA
+                        </strong>
+
+                    </div>
+
+                    <span class="card-indicator active"></span>
+
+                </div>
+
+
+                <!-- Sistema -->
+
+                <div class="system-card">
+
+                    <div class="card-icon">
+                        ⚡
+                    </div>
+
+                    <div class="card-info">
+
+                        <span>
+                            SISTEMA
+                        </span>
+
+                        <strong id="systemHealth">
+                            ESTÁVEL
+                        </strong>
+
+                    </div>
+
+                    <span class="card-indicator active"></span>
+
+                </div>
+
+
+                <!-- Segurança -->
+
+                <div class="system-card">
+
+                    <div class="card-icon">
+                        🔐
+                    </div>
+
+                    <div class="card-info">
+
+                        <span>
+                            SEGURANÇA
+                        </span>
+
+                        <strong>
+                            ATIVA
+                        </strong>
+
+                    </div>
+
+                    <span class="card-indicator active"></span>
+
+                </div>
+
+
+                <!-- Conhecimento -->
+
+                <div class="system-card">
+
+                    <div class="card-icon">
+                        🌐
+                    </div>
+
+                    <div class="card-info">
+
+                        <span>
+                            CONHECIMENTO
+                        </span>
+
+                        <strong id="knowledgeStatus">
+                            DISPONÍVEL
+                        </strong>
+
+                    </div>
+
+                    <span class="card-indicator active"></span>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+
+
+        <!-- ======================================
+             CHAT
+        ======================================= -->
+
+        <section class="chat-section">
+
+
+            <div class="chat-header">
+
+                <div>
+
+                    <h2>
+                        CONVERSA COM DARKIA
+                    </h2>
+
+                    <span>
+                        Canal de comunicação neural
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="clear-chat"
+                    id="clearChat"
+                    type="button"
+                >
+                    LIMPAR
+                </button>
+
+            </div>
+
+
+
+            <!-- MENSAGENS -->
+
+            <div
+                class="chat-messages"
+                id="chatMessages"
+            >
+
+                <!-- Mensagem inicial -->
+
+                <div class="message darkia-message">
+
+                    <div class="message-avatar">
+                        ◈
+                    </div>
+
+                    <div class="message-content">
+
+                        <div class="message-name">
+                            DARKIA
+                        </div>
+
+                        <div class="message-text">
+
+                            Sistema iniciado.
+
+                            <br><br>
+
+                            Olá, <strong>BG</strong>. Eu sou a DARKIA,
+                            tua inteligência artificial.
+
+                            <br><br>
+
+                            <span class="system-line">
+                                ▸ Núcleo: ONLINE
+                            </span>
+
+                            <br>
+
+                            <span class="system-line">
+                                ▸ Memória: ATIVA
+                            </span>
+
+                            <br>
+
+                            <span class="system-line">
+                                ▸ Segurança: ATIVA
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==================================
+                 INDICADOR DE PROCESSAMENTO
+            =================================== -->
+
+            <div
+                class="typing-indicator"
+                id="typingIndicator"
+                hidden
+            >
+
+                <div class="message-avatar">
+                    ◈
+                </div>
+
+                <div class="typing-content">
+
+                    <span>
+                        DARKIA está processando
+                    </span>
+
+                    <div class="typing-dots">
+
+                        <i></i>
+                        <i></i>
+                        <i></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================
+                 CAMPO DE MENSAGEM
+            =================================== -->
+
+            <div class="chat-input-area">
+
+                <button
+                    class="voice-button"
+                    id="voiceButton"
+                    type="button"
+                    aria-label="Entrada de voz"
+                >
+                    🎙️
+                </button>
+
+
+                <div class="input-wrapper">
+
+                    <textarea
+                        id="messageInput"
+                        rows="1"
+                        placeholder="Fale com a DARKIA..."
+                        autocomplete="off"
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    class="send-button"
+                    id="sendButton"
+                    type="button"
+                    aria-label="Enviar mensagem"
+                >
+                    ➤
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ======================================
+             INFORMAÇÕES DA DARKIA
+        ======================================= -->
+
+        <section class="info-section">
+
+
+            <div class="info-card">
+
+                <span class="info-icon">
+                    🧠
+                </span>
+
+                <div>
+
+                    <strong>
+                        MEMÓRIA
+                    </strong>
+
+                    <span>
+                        Sistema de memória da DARKIA
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <span class="info-icon">
+                    ⚡
+                </span>
+
+                <div>
+
+                    <strong>
+                        PROCESSAMENTO
+                    </strong>
+
+                    <span>
+                        Núcleo de processamento ativo
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <span class="info-icon">
+                    🔐
+                </span>
+
+                <div>
+
+                    <strong>
+                        PROTEÇÃO
+                    </strong>
+
+                    <span>
+                        Camada de segurança ativa
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ======================================
+             CRIADORES
+        ======================================= -->
+
+        <footer class="footer">
+
+            <div class="creators">
+
+                <span>
+                    CRIADORES
+                </span>
+
+                <strong>
+                    BG — Basilua
+                </strong>
+
+                <span class="separator">
+                    ×
+                </span>
+
+                <strong>
+                    Ibram — Marbi
+                </strong>
+
+            </div>
+
+
+            <div class="footer-line"></div>
+
+
+            <div class="copyright">
+
+                DARKIA AI CORE
+
+                <span>
+                    •
+                </span>
+
+                V2
+
+            </div>
+
+        </footer>
+
+
+    </main>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+         Será conectado depois ao núcleo da DARKIA
+    =========================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
