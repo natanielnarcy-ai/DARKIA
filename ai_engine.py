@@ -81,7 +81,7 @@ def resposta_nome():
     if nome_artistico:
         return (
             f"O teu nome artístico é "
-            f"{nome_artistico}. 🎵🧠"
+            f"{BG.San}. 🎵🧠"
         )
 
     return (
@@ -114,7 +114,7 @@ def resposta_criadores():
 
     completo_1 = criador_1.get(
         "nome_completo",
-        "Basilua"
+        "Basilua Geraldo"
     )
 
     nome_2 = criador_2.get(
@@ -124,14 +124,14 @@ def resposta_criadores():
 
     completo_2 = criador_2.get(
         "nome_completo",
-        "Marbi"
+        "Francisco Augusto"
     )
 
     return (
         "Os meus criadores são:\n\n"
         f"👤 {nome_1} ({completo_1})\n"
         f"👤 {nome_2} ({completo_2})\n\n"
-        "🤖 Eles são os criadores da DARKIA."
+        " Eles são os meus criadores."
     )
 
 
@@ -626,10 +626,70 @@ def resposta_local(message):
         )
 
     # ------------------------------------------------------
+    # CONHECIMENTO ESPECÍFICO
+    # ------------------------------------------------------
+
+    if "python" in texto and any(
+        frase in texto
+        for frase in [
+            "o que é",
+            "o que e",
+            "para que serve",
+            "explica",
+            "fala sobre",
+            "serve para quê",
+            "serve para que",
+            "onde é usado",
+            "onde e usado"
+        ]
+    ):
+        return (
+            "🐍 Python é uma linguagem de programação de alto nível, "
+            "conhecida por ter uma sintaxe simples. "
+            "É usada em áreas como automação, desenvolvimento web, "
+            "análise de dados, ciência e Inteligência Artificial."
+        )
+
+    if "html" in texto and any(
+        frase in texto
+        for frase in [
+            "o que é",
+            "o que e",
+            "para que serve",
+            "explica",
+            "fala sobre",
+            "serve para quê",
+            "serve para que"
+        ]
+    ):
+        return (
+            "🌐 HTML é uma linguagem de marcação usada para "
+            "estruturar páginas da Web. "
+            "Com HTML podemos criar títulos, textos, imagens, "
+            "links, listas, formulários e outros elementos."
+        )
+
+    if "algoritmo" in texto and any(
+        frase in texto
+        for frase in [
+            "o que é",
+            "o que e",
+            "explica",
+            "fala sobre",
+            "para que serve"
+        ]
+    ):
+        return (
+            "🧠 Um algoritmo é uma sequência lógica e organizada "
+            "de passos usada para resolver um problema ou realizar "
+            "uma tarefa."
+        )
+
+    # ------------------------------------------------------
     # PROGRAMAÇÃO
     # ------------------------------------------------------
 
-    if any(
+    if not texto.startswith("o que é ") and not texto.startswith("o que e ") and any(
         palavra in texto
         for palavra in [
             "programação",
@@ -660,8 +720,51 @@ def resposta_local(message):
 
         return (
             f"O resultado é {resultado}."
-        )
+          )
 
+	   
+    # ------------------------------------------------------
+    # CÉREBRO LOCAL AVANÇADO
+    # ------------------------------------------------------
+
+    respostas_inteligentes = {
+        "o que é inteligência artificial":
+            "Inteligência Artificial (IA) é uma área da computação que cria sistemas capazes de realizar tarefas que normalmente exigem inteligência humana, como compreender linguagem, reconhecer padrões, aprender com dados e resolver problemas.",
+
+        "o que é ia":
+            "IA significa Inteligência Artificial. É uma tecnologia que permite aos computadores analisar informações, aprender padrões e realizar tarefas de forma inteligente.",
+
+        "o que é programação":
+            "Programação é o processo de criar instruções que um computador pode executar para realizar uma tarefa ou resolver um problema.",
+
+        "o que é python":
+            "Python é uma linguagem de programação conhecida pela sintaxe simples e usada em áreas como automação, desenvolvimento web, análise de dados e Inteligência Artificial.",
+
+        "o que é html":
+            "HTML é a linguagem de marcação usada para estruturar páginas da Web, como títulos, textos, imagens, links e formulários.",
+
+        "o que é algoritmo":
+            "Um algoritmo é uma sequência lógica e organizada de passos usada para resolver um problema ou realizar uma tarefa.",
+
+        "o que é lógica de programação":
+            "Lógica de programação é a organização do pensamento em passos e regras para criar soluções que um computador consiga executar.",
+
+        "o que é computador":
+            "Um computador é uma máquina eletrônica capaz de receber dados, processá-los, armazená-los e produzir informações.",
+
+        "o que é internet":
+            "A Internet é uma rede mundial que conecta computadores, celulares e outros dispositivos para permitir a comunicação e o compartilhamento de informações.",
+
+        "o que é memória":
+            "Na DARKIA, a memória é o sistema responsável por guardar informações importantes e histórico das conversas para serem utilizados posteriormente."
+    }
+
+    # Procura uma resposta conhecida.
+    for pergunta, resposta in respostas_inteligentes.items():
+
+        if texto == pergunta or pergunta in texto:
+
+            return resposta
     # ------------------------------------------------------
     # MEMÓRIA CONTEXTUAL
     # ------------------------------------------------------
@@ -678,7 +781,6 @@ def resposta_local(message):
             f"{contexto}"
         )
 
-    # ------------------------------------------------------
     # RESPOSTA PADRÃO
     # ------------------------------------------------------
 

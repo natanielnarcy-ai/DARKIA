@@ -23,6 +23,64 @@
 
 <body>
 
+<div id="authScreen" class="auth-screen">
+  <div class="auth-card">
+
+    <div class="auth-logo">◈</div>
+
+    <h1>DARKIA</h1>
+    <p class="auth-subtitle">ARTIFICIAL INTELLIGENCE</p>
+
+    <div class="auth-tabs">
+      <button id="loginTab" class="auth-tab active" type="button">
+        ENTRAR
+      </button>
+
+      <button id="registerTab" class="auth-tab" type="button">
+        CRIAR CONTA
+      </button>
+    </div>
+
+    <form id="authForm">
+
+      <div class="auth-field">
+        <label for="authUsername">UTILIZADOR</label>
+        <input
+          id="authUsername"
+          type="text"
+          autocomplete="username"
+          placeholder="Nome de utilizador"
+          required
+        >
+      </div>
+
+      <div class="auth-field">
+        <label for="authPassword">PALAVRA-PASSE</label>
+        <input
+          id="authPassword"
+          type="password"
+          autocomplete="current-password"
+          placeholder="Palavra-passe"
+          required
+        >
+      </div>
+
+      <button id="authSubmit" class="auth-submit" type="submit">
+        ENTRAR NA DARKIA
+      </button>
+
+      <div id="authMessage" class="auth-message"></div>
+
+    </form>
+
+    <div class="auth-footer">
+      DARKIA AI CORE • V2.0
+    </div>
+
+  </div>
+</div>
+
+
     <!-- ==========================================
          FUNDO / EFEITOS
     =========================================== -->
@@ -49,6 +107,103 @@
         <!-- ======================================
              CABEÇALHO
         ======================================= -->
+
+        <!-- MENU DARKIA -->
+        <button
+            id="menuButton"
+            class="menu-button"
+            type="button"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div id="menuOverlay" class="menu-overlay"></div>
+
+        <aside id="sideMenu" class="side-menu" aria-hidden="true">
+
+            <div class="side-menu-header">
+                <div>
+                    <strong>DARKIA</strong>
+                    <span>AI CORE MENU</span>
+                </div>
+
+                <button
+                    id="closeMenu"
+                    class="close-menu"
+                    type="button"
+                    aria-label="Fechar menu"
+                >
+                    ✕
+                </button>
+            </div>
+
+            <div class="side-menu-line"></div>
+
+            <nav class="menu-options">
+
+                <button class="menu-option" id="menuNewChat" type="button">
+                    <span class="menu-option-icon">💬</span>
+                    <span>
+                        <strong>Nova conversa</strong>
+                        <small>Começar uma nova conversa</small>
+                    </span>
+                </button>
+
+                <button class="menu-option" id="menuHistory" type="button">
+      <span class="menu-option-icon">🕘</span>
+      <span>
+        <strong>Histórico</strong>
+        <small>Ver conversas anteriores</small>
+      </span>
+    </button>
+
+    <button class="menu-option" id="menuAccount" type="button">
+      <span class="menu-option-icon">👤</span>
+      <span>
+        <strong>Minha conta</strong>
+        <small>Ver dados da conta</small>
+      </span>
+    </button>
+
+    <button class="menu-option" id="menuVoice" type="button">
+                    <span class="menu-option-icon">🎙️</span>
+                    <span>
+                        <strong>Voice Chat</strong>
+                        <small>Falar com a DARKIA</small>
+                    </span>
+                </button>
+
+                <button class="menu-option" id="menuStatus" type="button">
+                    <span class="menu-option-icon">⚡</span>
+                    <span>
+                        <strong>Status do sistema</strong>
+                        <small>Ver estado do núcleo</small>
+                    </span>
+                </button>
+
+                <button class="menu-option" id="menuAbout" type="button">
+                    <span class="menu-option-icon">◈</span>
+                    <span>
+                        <strong>Sobre a DARKIA</strong>
+                        <small>Informações do projeto</small>
+                    </span>
+                </button>
+
+            </nav>
+
+            <div class="side-menu-footer">
+                <button id="menuLogout" class="menu-logout" type="button">
+                    🚪 TERMINAR SESSÃO
+                </button>
+                <span>DARKIA AI CORE</span>
+                <small>V2.0</small>
+            </div>
+
+        </aside>
 
         <header class="top-bar">
 
@@ -402,6 +557,9 @@
                 </button>
 
 
+
+
+
                 <div class="input-wrapper">
 
                     <textarea
@@ -557,7 +715,52 @@
          Será conectado depois ao núcleo da DARKIA
     =========================================== -->
 
-    <script src="script.js"></script>
 
+
+<!-- DARKIA CALL -->
+<div id="darkiaCall" class="darkia-call" hidden>
+    <div class="call-background"></div>
+
+    <div class="call-header">
+        <div>
+            <strong>DARKIA</strong>
+            <span>AI VOICE CORE</span>
+        </div>
+        <div class="call-online">
+            <i></i>
+            ONLINE
+        </div>
+    </div>
+
+    <div class="darkia-avatar-area">
+        <div class="voice-ring ring-a"></div>
+        <div class="voice-ring ring-b"></div>
+        <div class="voice-ring ring-c"></div>
+
+        <div class="darkia-avatar-frame">
+            <img src="darkia-voice-avatar.png" alt="DARKIA" id="darkiaAvatar">
+        </div>
+    </div>
+
+    <div class="darkia-call-info">
+        <h2>DARKIA</h2>
+        <div id="darkiaVoiceStatus">PRONTA PARA OUVIR</div>
+
+        <div class="audio-bars" id="audioBars">
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+
+    <div class="call-controls">
+        <button id="darkiaMicButton" class="call-button mic-button" type="button">🎙️</button>
+        <button id="darkiaEndCall" class="call-button end-button" type="button">✕</button>
+    </div>
+
+    <div class="call-hint">Fala com a DARKIA</div>
+</div>
+
+    <script src="script.js"></script>
 </body>
 </html>
