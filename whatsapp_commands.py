@@ -1,97 +1,24 @@
-from core.ai_engine import ask
-
-
 def process_command(message):
-    """
-    Processa comandos recebidos pelo WhatsApp.
-    """
-
-    if not isinstance(message, str):
-        return None
-
     message = message.strip()
 
-    if not message:
-        return None
-
-    command = message.lower()
-
-    # -------------------------
-    # PING
-    # -------------------------
-
-    if command in ("!ping", "/ping"):
+    if message == "!ping":
         return "DARKIA: 🟢 Online."
 
-    # -------------------------
-    # MENU
-    # -------------------------
-
-    if command in ("!menu", "/menu"):
-        return """DARKIA — MENU 🤖
-
-!ping — verificar se estou online
-!menu — mostrar este menu
-!ia <pergunta> — conversar com a DARKIA
-!status — estado do sistema"""
-
-    # -------------------------
-    # STATUS
-    # -------------------------
-
-    if command in ("!status", "/status"):
-        return """DARKIA STATUS
-
-Sistema: 🟢 Online
-Núcleo: DARKIA AI
-Modo: WhatsApp
-Comandos: 🟢 Ativos"""
-
-    # -------------------------
-    # IA
-    # -------------------------
-
-    if command.startswith("!ia ") or command.startswith("/ia "):
-
-        pergunta = message[4:].strip()
-
-        if not pergunta:
-            return "DARKIA: Escreve uma pergunta depois de !ia."
-
-        resposta = ask(pergunta)
-
-        if resposta:
-            return resposta
-
+    if message == "!menu":
         return (
-            "DARKIA: 🧠 Recebi a tua pergunta, "
-            "mas ainda não tenho uma resposta local para ela."
+            "🤖 DARKIA — MENU\n\n"
+            "!ping — Verificar se a DARKIA está online\n"
+            "!menu — Mostrar este menu\n"
+            "!ia <pergunta> — Falar com a IA\n"
+            "!status — Ver estado do sistema"
+        )
+
+    if message == "!status":
+        return (
+            "🟢 Sistema online\n"
+            "🧠 Núcleo DARKIA AI\n"
+            "📱 Modo WhatsApp\n"
+            "⚡ Comandos ativos"
         )
 
     return None
-
-
-if __name__ == "__main__":
-
-    print("=" * 50)
-    print("DARKIA — TESTE DO MÓDULO WHATSAPP")
-    print("=" * 50)
-
-    testes = [
-        "!ping",
-        "!status",
-        "!menu",
-        "!ia Olá",
-        "!ia Quem são os teus criadores?",
-        "!ia O que você lembra de mim?",
-    ]
-
-    for mensagem in testes:
-
-        print("\nWhatsApp:")
-        print(mensagem)
-
-        resposta = process_command(mensagem)
-
-        print("\nDARKIA:")
-        print(resposta)
